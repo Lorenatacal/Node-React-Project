@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require ('express');
 
-const app = express();
+const app = express ();
 
-app.get('/', (req, res) => {
-  res.send({ hi: 'there' });
+app.get ('/', (req, res) => {
+  res.send ({message: 'Hello everyone'});
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+app.listen (PORT);
