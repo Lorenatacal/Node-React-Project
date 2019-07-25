@@ -13,9 +13,16 @@ passport.use(
       callbackURL: '/auth/google/callback',
     },
     (accessToken, refreshToken, profile, done) => {
-      new User({
-        googleId: profile.id,
-      }).save();
+      User.findOne({ googleId: profile.id }).then((existingUser) => {
+        if (existingUser) {
+          // we already have a record with the given profile id
+        } else {
+          // create a new User
+          new User({
+            googleId: profile.id,
+          }).save();
+        }
+      });
       //saves the instance to the MB database
     }
   )
