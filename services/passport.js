@@ -16,11 +16,14 @@ passport.use(
       User.findOne({ googleId: profile.id }).then((existingUser) => {
         if (existingUser) {
           // we already have a record with the given profile id
+          done(null, existingUser);
         } else {
           // create a new User
           new User({
             googleId: profile.id,
-          }).save();
+          })
+            .save()
+            .then((user) => done(null, user));
         }
       });
       //saves the instance to the MB database
