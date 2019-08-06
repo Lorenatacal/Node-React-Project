@@ -8,9 +8,7 @@ require('./services/passport');
 
 mongoose
   .connect(keys.mongoURI, () => {}, { useNewUrlParser: true })
-  .catch((err) => {
-    console.log(err);
-  });
+  .catch((err) => {});
 
 const app = express();
 
