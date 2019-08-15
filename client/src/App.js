@@ -19,6 +19,7 @@ function App() {
           Hi there
         </a>
       </header>
+      <a href="/auth/google">Sign in With Google</a>
     </div>
   );
 }
